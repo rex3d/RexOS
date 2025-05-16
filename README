@@ -1,0 +1,89 @@
+/project-root
+│
+├── boot/                  # Bootloader + kernel startowe gówno (ASM + linkery)
+│   ├── asm/
+│   │   ├── bootloader.asm+
+│   │   ├── bootloader_utils.asm+
+│   │   ├── bootloader_pm.asm+
+│   │   ├── gdt.asm+
+│   │   ├── porty.asm+
+│   │   ├── porty64.asm+
+│   │   ├── multitasking16.asm+
+│   ├── link.ld+
+│   └── Makefile+
+│
+├── kernel/                # Kernel C + ASM + include + ld
+│   ├── asm/
+│   │   ├── long_mode.asm+
+│   │   ├── multitasking32.asm+
+│   │   ├── multitasking64.asm+
+│   │   ├── read_sector_16.asm+
+│   ├── c/
+│   │   ├── kernel.c
+│   │   ├── kernel64.c
+│   │   ├── read_sector.c
+│   │   ├── fat12.c
+│   │   ├── fat32.c
+│   │   ├── elf_loader.c
+│   │   ├── keyboard.c
+│   │   ├── video.c
+│   │   ├── shell.c
+│   │   ├── interrupts.c
+│   │   ├── paging.c
+│   │   ├── multitasking64.c
+│   │   ├── filesystem.c
+│   │   ├── utils.c
+│   │   ├── loader_screen.c
+│   ├── include/
+│   │   ├── long_mode.h
+│   │   ├── fat12.h
+│   │   ├── fat32.h
+│   │   ├── elf_loader.h
+│   │   ├── keyboard.h
+│   │   ├── video.h
+│   │   ├── shell.h
+│   │   ├── interrupts.h
+│   │   ├── paging.h
+│   │   ├── multitasking.h
+│   │   ├── filesystem.h
+│   │   ├── utils.h
+│   │   ├── porty.h
+│   │   ├── loader_screen.h
+│   ├── kernel.ld
+│   └── Makefile
+│
+├── fs/                    # System plików na bok, czysto
+│   ├── fat12.c (jeśli chcesz przenieść)
+│   ├── fat12.h
+│   ├── fat32.c
+│   ├── fat32.h
+│   ├── filesystem.c
+│   ├── filesystem.h
+│
+├── apps/                  # Proste aplikacje usera
+│   ├── app_echo.c
+│   ├── app_clear.c
+│   ├── app_help.c
+│   └── app_test.c
+│
+├── dev/                   # Sterowniki i urządzenia (klawiatura, ekran itp.)
+│   ├── keyboard.c (jeśli chcesz przenieść stąd)
+│   ├── keyboard.h
+│   ├── video.c
+│   ├── video.h
+│
+├── include/               # Globalne nagłówki, jeśli są
+│   └── (tu możesz trzymać nagłówki używane globalnie)
+│
+├── lib/                   # Biblioteki, jeśli planujesz (np. helpery)
+│
+├── etc/                   # Konfiguracja systemu (np. plik konfigu shell)
+│
+├── tmp/                   # Tymczasowe pliki
+│
+├── tools/                 # Skrypty i konfiguracje
+│   ├── build.sh
+│   ├── Grub.cfg
+│   └── qemu_run.sh
+│
+└── README.md
